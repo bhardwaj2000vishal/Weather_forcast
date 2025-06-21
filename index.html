@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="body">
+
+        <div class="card">
+            <div class="card_top">
+                <div class="search_bar">
+                    <input class="search"  type="search" placeholder="Enter City" >
+                </div>
+                <div id="search_img" class="search_img_div">
+                    <img class="search_img" src="images/search.png" >
+                </div>
+            </div>
+            <div class="card_mid">
+                <img class="weathere" src="images/mist.png" >
+                <p class="temp">10°C</p>
+                <p class="city">Delhi</p>
+            </div>
+            <div class="card_end">
+                <div class="humidity_div">
+                    <img class="humidity" src="images/humidity.png">
+                    <div style="background: none;">
+                        <p class="data_hum">90%</p>
+                        <p class="data_name_hum">Humidity</p>
+                    </div>
+                </div>
+                <div class="wind_div">
+                    <img class="wind" src="images/wind.png">
+                    <div style="background: none;">
+                        <p class="data_win">2.68 km/h </p>
+                        <p class="data_name_win">Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const api_key="3da64e4f0724d830f24e3aaa04d597ed";
+        let api_url="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        let search_img = document.getElementById("search_img")
+        let search =document.querySelector(".search");
+        let weather = document.querySelector(".weathere");
+        //  console.log("weather->"+weather);
+        // console.log()
+
+        async function checkWeather(city) {
+            const response = await fetch(api_url+city + `&appid=${api_key}`);
+            let data = await response.json();
+            console.log(data);
+            document.querySelector(".temp").innerHTML=Math.round(data.main.temp)+"°C" ;
+            document.querySelector(".city").innerHTML=data.name;
+            document.querySelector(".data_hum").innerHTML=data.main.humidity+"%";
+            // document.querySelector(".data_name_hum").innerHTML=data.main.humidity;
+            document.querySelector(".data_win").innerHTML=data.wind.speed+"km/h ";
+            //
+            // console.log(weather);
+            if(data.weather[0].main=="Clouds"){
+                weather.src="images/clouds.png"
+                // console.log("hi");
+            }
+             else if(data.weather[0].main=="Clear"){
+                weather.src="images/clear.png"
+            }
+            else if(data.weather[0].main=="Drizzle"){
+                weather.src="images/drizzle.png"
+            }
+            else if(data.weather[0].main=="Mist"){
+                weather.src="images/mist.png"
+            }
+            else if(data.weather[0].main=="Rain"){
+                weather.src="images/rain.png"
+            }
+            else if(data.weather[0].main=="Snow"){
+                weather.src="images/snow.png"
+            }
+            else if(data.weather[0].main=="Wind"){
+                weather.src="images/wind.png"
+            }
+        }
+
+         search_img.addEventListener("click",()=>{
+            console.log("hii");
+            // api_url = api_url+search.value;
+             checkWeather(search.value); 
+            search.value="";
+        })
+
+
+    </script>
+</body>
+</html>

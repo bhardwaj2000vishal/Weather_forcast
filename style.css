@@ -1,0 +1,149 @@
+*{
+    background-color: rgb(78, 77, 77);
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    background: linear-gradient( 135deg,rgb(157, 228, 254) ,rgb(204, 171, 250));
+    width: 320px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 1rem;
+    
+
+}
+.card_top{
+display: flex;
+width: 100%;
+justify-content: space-around;
+ padding-top: 1rem;
+background: none;
+}
+.card_mid{
+display: flex;
+background: none;
+/* padding: none; */
+/* margin: 0; */
+flex-direction: column;
+align-items: center;
+color: white;
+/* font-size: 2rem; */
+
+}
+.card_end{
+display: flex;
+background: none;
+/* justify-content: center; */
+align-items: center;
+justify-content: space-around;
+width: 80%;
+margin-bottom: 30px;
+}
+.search_bar{
+    background: white;
+    width: 70%;
+    border-radius: 3rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search{
+    width: 90%;
+    background: none;
+    /* border: none; */
+    border-style: none;
+        
+}
+.search:focus{
+    outline: none;
+}
+.search_img_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 3rem;
+    
+}
+.search_img_div:hover{
+    border-radius: 3.5rem;
+    cursor: pointer;
+}
+.search_img{
+    
+    background: white;
+    /* width: 12%; */
+    /* margin-right: 20px; */
+    height: 20px ;
+    width: 20px;
+    padding: .5rem;
+    border-radius: 3rem;
+}
+.weathere{
+    background: none;
+    /* margin: 0px; */
+    width: 10rem;
+    height: 10rem;
+    margin-top: 10px;
+
+}
+.temp{
+background: none;
+margin-top: 20px;
+margin-bottom: 5px;
+/* padding:none; */
+font-size: 3rem;
+font-weight:600;
+}
+.city{
+background: none;
+margin: 0px;
+font-size: 2rem;
+margin-bottom: 30px;
+}
+.humidity{
+background: none;
+height: 2rem;
+margin-right: 10px;
+}
+.humidity_div{
+    background: none;
+display: flex;
+align-items: center;
+/* flex-direction: column; */
+
+}
+.wind{
+background: none;
+height: 3rem;
+margin-right: 10px;
+}
+.wind_div{
+    background: none;
+display:flex;
+align-items: center;
+/* flex-direction: column; */
+}
+.data_hum,.data_win{
+    background: none;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+.data_name_hum,.data_name_win{
+    background: none;
+    color: white;
+    font-size: 1rem;
+    margin: 0px;
+}
+
+/* https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key} */
